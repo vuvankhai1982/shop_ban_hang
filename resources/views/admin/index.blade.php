@@ -1,4 +1,4 @@
-@extends('admin.admin_layout')
+@extends('admin.layout.admin_layout')
 @section('content')
    Hello
- @endsection
+@endsection

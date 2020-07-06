@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'AdminController@index')->name('home');
 Route::get('conv', function (){
     $users=App\users::all();
     foreach ($users as $user){
