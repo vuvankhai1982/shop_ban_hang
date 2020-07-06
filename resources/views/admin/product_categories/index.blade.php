@@ -1,4 +1,6 @@
 @extends('admin.layout.admin_layout')
 @section('content')
-   Category
+    @foreach($categories as $category)
+        {{ $category->name }}
+    @endforeach
 @endsection

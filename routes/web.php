@@ -31,6 +31,5 @@ Route::prefix('admin')
 //        Route::get('/login','LoginController@getLogin')->name('get_login');
 //        Route::post('/login', 'LoginController@postLogin')->name('post_login');
 
-    Route::get('product-categories','ProductCategoryController@index');
-
+    Route::resource('product-categories','ProductCategoryController');
 });
