@@ -26,11 +26,11 @@ Route::get('conv', function (){
     }
 });
 Route::prefix('admin')
+    ->namespace('Admin')
+    ->group(function () {
+//        Route::get('/login','LoginController@getLogin')->name('get_login');
+//        Route::post('/login', 'LoginController@postLogin')->name('post_login');
 
-//    ->namespace('Admin')
-    ->group(function (){
-
-        Route::get('/login','LoginController@getLogin')->name('get_login');
-        Route::post('/login', 'LoginController@postLogin')->name('post_login');
+    Route::get('product-categories','ProductCategoryController@index');
 
 });
