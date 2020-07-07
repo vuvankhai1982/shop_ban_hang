@@ -16,15 +16,16 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/', 'AdminController@index')->name('home');
-Route::get('conv', function (){
-    $users=App\users::all();
-    foreach ($users as $user){
-        $a = App\users::find($user->id);
-        $a->password=bcrypt('12345678');
-        $a->save();
-    }
-});
+//Route::get('/', 'AdminController@index');
+//////Route::get('conv', function (){
+//////    $users=App\users::all();
+//////    foreach ($users as $user){
+//////        $a = App\users::find($user->id);
+//////        $a->password=bcrypt('12345678');
+//////        $a->save();
+//////    }
+//////});
+Route::get('/', 'Admin\AdminController@index');
 Route::prefix('admin')
     ->namespace('Admin')
     ->group(function () {
