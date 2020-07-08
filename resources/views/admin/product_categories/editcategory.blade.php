@@ -23,7 +23,10 @@
                             value="{{$category->name}}">
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" value="Sua" class="btn btn-primary" />
+                            <input type="submit" name="submit" value="Sửa" class="form-control btn btn-primary" />
+                        </div>
+                        <div class="form-group">
+                            <a href="{{asset('admin/product-categories')}}" class="form-control btn btn-danger">Hủy bỏ </a>
                         </div>
 
                         </form>
