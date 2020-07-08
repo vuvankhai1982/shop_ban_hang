@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 //////        $a->save();
 //////    }
 //////});
-Route::get('/', 'Admin\AdminController@index');
+Route::get('/', 'HomeController@index');
 Route::prefix('admin')
     ->namespace('Admin')
     ->group(function () {

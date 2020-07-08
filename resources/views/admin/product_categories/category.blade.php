@@ -14,10 +14,16 @@
                         Thêm danh mục
                     </div>
                     <div class="panel-body">
+                        <form action="{{asset('admin/product-categories')}}" method="post">
                         <div class="form-group">
                             <label>Tên danh mục:</label>
                             <input type="text" name="name" class="form-control" placeholder="Tên danh mục...">
                         </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" value="Thêm mới" class="btn btn-primary" />
+                            </div>
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </div>
@@ -34,13 +40,23 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($categories as $category)
                                 <tr>
-                                    <td>{{}}</td>
+                                    <td>{{$category->name}}</td>
                                     <td>
-                                        <a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
-                                        <a href="#" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+                                        <div>
+                                        <a href="{{asset('admin/product-categories/'.$category->id)}}" class="btn btn-warning"><span  class="glyphicon glyphicon-edit"></span> Sửa</a>
+{{--                                        <a href="{{ route('product-categories.destroy', $category->id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>--}}
+                                            <form style="float: right" action="{{ route('product-categories.destroy', $category->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button  type="submit" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="btn btn-danger"><span  class="glyphicon glyphicon-trash"></span>Xoa</button>
+                                            </form>
+                                        </div>
                                     </td>
+
                                 </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

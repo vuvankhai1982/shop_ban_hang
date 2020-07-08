@@ -12,31 +12,49 @@ class ProductCategoryController extends Controller
     {
         $categories = ProductCategory::all();
 
-        return view('admin.product_categories.index', compact('categories'));
+        return view('admin.product_categories.category', compact('categories'));
     }
 
     public function create()
     {
-        //
+        return view('admin.product_categories.category');
     }
 
     public function store(Request $request)
     {
-        //
+       $request->validate([
+           'name' => 'required'
+       ]);
+       ProductCategory::create($request->all());
+       return back();
+    }
+    public function show($id)
+{
+    $category = ProductCategory::find($id);
+    return view('admin.product_categories.editcategory', compact('category'));
+}
+
+    public function edit($id)
+    {
+        $category = ProductCategory::find($id);
+        return view('admin.product_categories.editcategory', compact('category'));
     }
 
-    public function edit(ProductCategory $category)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+        $category = ProductCategory::find($id);
+        $category->name = $request->get('name');
+        $category->save();
+        return redirect()->intended('admin/product-categories');
     }
 
-    public function update(Request $request, ProductCategory $category)
+    public function destroy($id)
     {
-        //
-    }
-
-    public function destroy(ProductCategory $category)
-    {
-        //
+        $data = ProductCategory::find($id);
+        $data->delete();
+        return redirect()->intended('admin/product-categories');
     }
 }

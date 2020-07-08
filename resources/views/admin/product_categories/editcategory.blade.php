@@ -14,10 +14,19 @@
                         Sửa danh mục
                     </div>
                     <div class="panel-body">
+                        <form action="{{ route('product-categories.update',$category->id) }}" method="post">
+                            @csrf
+                            @method('PUT')
                         <div class="form-group">
                             <label>Tên danh mục:</label>
-                            <input type="text" name="name" class="form-control" placeholder="Tên danh mục...">
+                            <input type="text" name="name" class="form-control" placeholder="Tên danh mục..."
+                            value="{{$category->name}}">
                         </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" value="Sua" class="btn btn-primary" />
+                        </div>
+
+                        </form>
                     </div>
                 </div>
             </div>

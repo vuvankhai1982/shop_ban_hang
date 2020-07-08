@@ -9,6 +9,6 @@ class AdminController extends Controller
 {
    public function index()
    {
-       return view('admin.product_categories.editcategory');
+       return view('admin.product_categories.index');
    }
 }
