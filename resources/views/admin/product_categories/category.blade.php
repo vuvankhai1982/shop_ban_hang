@@ -50,7 +50,7 @@
                                             <form style="float: right" action="{{ route('product-categories.destroy', $category->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button  type="submit" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="btn btn-danger"><span  class="glyphicon glyphicon-trash"></span>Xoa</button>
+                                                <button  type="submit" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="btn btn-danger"><span  class="glyphicon glyphicon-trash"></span>Xóa</button>
                                             </form>
                                         </div>
                                     </td>

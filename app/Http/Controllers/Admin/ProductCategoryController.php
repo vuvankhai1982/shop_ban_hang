@@ -29,10 +29,10 @@ class ProductCategoryController extends Controller
        return back();
     }
     public function show($id)
-{
-    $category = ProductCategory::find($id);
-    return view('admin.product_categories.editcategory', compact('category'));
-}
+    {
+            $category = ProductCategory::find($id);
+            return view('admin.product_categories.editcategory', compact('category'));
+    }
 
     public function edit($id)
     {
