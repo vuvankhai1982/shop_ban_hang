@@ -33,4 +33,5 @@ Route::prefix('admin')
 //        Route::post('/login', 'LoginController@postLogin')->name('post_login');
 
     Route::resource('product-categories','ProductCategoryController');
+    Route::resource('products','ProductController');
 });
