@@ -8,8 +8,10 @@
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
     <link href="admin/css/datepicker3.css" rel="stylesheet">
     <link href="admin/css/styles.css" rel="stylesheet">
+    <link href="admin/fonts" rel="stylesheet">
+    <script type="text/javascript" src="/admin/ckeditor/ckeditor.js"></script>
+    <script src="/admin/js/lumino.glyphs.js"></script>
     <script type="text/javascript" src="admin/ckeditor/ckeditor.js"></script>
-    <script src="admin/js/lumino.glyphs.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -50,6 +52,7 @@
 <script src="admin/js/easypiechart.js"></script>
 <script src="admin/js/easypiechart-data.js"></script>
 <script src="admin/js/bootstrap-datepicker.js"></script>
+<script src="admin/js/myscript.js"></script>
 <script>
     $('#calendar').datepicker({
     });
