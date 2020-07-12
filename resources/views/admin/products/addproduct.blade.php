@@ -13,9 +13,8 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">Thêm sản phẩm</div>
                     <div class="panel-body">
-                        <form method="post" enctype="multipart/form-data">
+                            <form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
                             <div class="row" style="margin-bottom:40px">
                                 <div class="col-xs-8">
                                     <div class="form-group" >
@@ -49,7 +48,7 @@
 {{--                                    </div>--}}
                                     <div class="form-group" >
                                         <label>Trạng thái</label>
-                                        <select required name="status" class="form-control">
+                                        <select required name="status_id" class="form-control">
                                             <option value="1">cong bo</option>
                                             <option value="0">nhap</option>
                                         </select>
@@ -62,7 +61,7 @@
                                         <label>Miêu tả</label>
                                         <textarea required name="content"  class="ckeditor" ></textarea>
                                         <script type="text/javascript">
-                                            var editor = CKEDITOR.replace('description',{
+                                            var editor = CKEDITOR.replace('content',{
                                                 language:'vi',
                                                 filebrowserImageBrowseUrl: '../../admin/ckfinder/ckfinder.html?Type=Images',
                                                 filebrowserFlashBrowseUrl: '../../admin/ckfinder/ckfinder.html?Type=Flash',

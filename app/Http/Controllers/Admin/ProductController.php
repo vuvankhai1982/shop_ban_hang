@@ -21,12 +21,11 @@ class ProductController extends Controller
     {
         $categories = ProductCategory::all();
         return view('admin.products.addproduct', compact('categories'));
-
     }
-
 
     public function store(Request $request)
     {
+        $filename = $request->image->getClientOriginalName();
         $request->validate([
             'name' => 'required',
             'category_id' => 'required',
@@ -35,11 +34,14 @@ class ProductController extends Controller
             'status_id' => 'required',
             'unit_price' => 'required',
             'promotion_price' => 'required',
-            'image' => 'required',
-            'thumbnail_image' => 'required'
+//            'image'  => 'required',
+//            'thumbnail_image' => 'required'
+
         ]);
-        Product::create($request->all());
-        return redirect()->route('admin/products');
+        $data = $request->all();
+        $data['image'] =  $filename;
+        Product::create($data);
+        return back();
     }
 
     public function show($id)
@@ -67,7 +69,7 @@ class ProductController extends Controller
             'unit_price' => 'required',
             'promotion_price' => 'required',
             'image' => 'required',
-            'thumbnail_image' => 'required'
+//            'thumbnail_image' => 'required'
         ]);
         $products = Product::find($id);
         $products->name = $request->get('name');

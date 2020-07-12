@@ -8,7 +8,7 @@
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
     <link href="admin/css/datepicker3.css" rel="stylesheet">
     <link href="admin/css/styles.css" rel="stylesheet">
-    <link href="admin/fonts" rel="stylesheet">
+    <link href="admin/fonts/glyphicons-halflings-regular.woff" rel="stylesheet">
     <script type="text/javascript" src="/admin/ckeditor/ckeditor.js"></script>
     <script src="/admin/js/lumino.glyphs.js"></script>
     <script type="text/javascript" src="admin/ckeditor/ckeditor.js"></script>

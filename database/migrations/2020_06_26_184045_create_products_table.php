@@ -21,8 +21,8 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->longText('content')->nullable();
             $table->unsignedTinyInteger('status_id');
-            $table->float('unit_price');
-            $table->float('promotion_price');
+            $table->unsignedBigInteger('unit_price');
+            $table->unsignedBigInteger('promotion_price');
             $table->string('image')->nullable();
             $table->string('thumbnail_image')->nullable();
 

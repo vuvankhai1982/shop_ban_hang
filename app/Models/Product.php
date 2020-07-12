@@ -19,10 +19,10 @@ class Product extends Model
         'unit_price',
         'promotion_price',
         'image',
-        'thumbnail_image'
+//        'thumbnail_image'
     ];
     public function product_categories(){
-      return  $this->belongsTo('App\Models\Product', 'category_id', 'id');
+      return  $this->belongsTo('App\Models\ProductCategory', 'category_id', 'id');
 
     }
 }
