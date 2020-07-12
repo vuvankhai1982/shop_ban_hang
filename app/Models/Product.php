@@ -10,6 +10,7 @@ class Product extends Model
     use SoftDeletes;
 
     protected $table = 'products';
+
     protected $fillable = [
         'name',
         'category_id',
@@ -21,8 +22,8 @@ class Product extends Model
         'image',
 //        'thumbnail_image'
     ];
-    public function product_categories(){
-      return  $this->belongsTo('App\Models\ProductCategory', 'category_id', 'id');
 
+    public function product_categories() {
+      return  $this->belongsTo('App\Models\ProductCategory', 'category_id', 'id');
     }
 }

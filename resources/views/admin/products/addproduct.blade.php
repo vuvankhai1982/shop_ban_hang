@@ -22,9 +22,22 @@
                                         <input required type="text" name="name" class="form-control">
                                     </div>
                                     <div class="form-group" >
+                                        <label>Loai</label>
+                                        @php
+                                            $types = __('constants.product.types')
+                                        @endphp
+                                        <select name="type_id" >
+                                            @foreach($types as $key => $type)
+                                                <option value="{{ $key }}">{{ $type }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group" >
                                         <label>Giá sản phẩm</label>
                                         <input required type="number" name="unit_price" class="form-control">
                                     </div>
+
                                     <div class="form-group" >
                                         <label>Ảnh sản phẩm</label>
                                         <input required id="img" type="file" name="image" class="form-control hidden" onchange="changeImg(this)">
@@ -85,7 +98,7 @@
 {{--                                        Không: <input type="radio" checked name="featured" value="0">--}}
 {{--                                    </div>--}}
                                     <input type="submit" name="submit" value="Thêm" class="btn btn-primary">
-                                    <a href="#" class="btn btn-danger">Hủy bỏ</a>
+                                    <a href="{{route('products.index')}}" class="btn btn-danger">Hủy bỏ</a>
                                 </div>
                             </div>
                         </form>

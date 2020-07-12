@@ -9,22 +9,24 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-
     public function index()
     {
         $products = Product::all();
         return view('admin.products.product', compact('products'));
     }
 
-
     public function create()
     {
         $categories = ProductCategory::all();
+
         return view('admin.products.addproduct', compact('categories'));
     }
 
     public function store(Request $request)
     {
+        $file = $request->image;
+
+        $file->move('images', $request->image->getClientOriginalName());
         $filename = $request->image->getClientOriginalName();
         $request->validate([
             'name' => 'required',
@@ -36,27 +38,28 @@ class ProductController extends Controller
             'promotion_price' => 'required',
 //            'image'  => 'required',
 //            'thumbnail_image' => 'required'
-
         ]);
         $data = $request->all();
         $data['image'] =  $filename;
+
         Product::create($data);
+
         return back();
     }
 
     public function show($id)
     {
         $products = Product::find($id);
+
         return view('admin.products.editproduct', compact('products'));
     }
-
 
     public function edit($id)
     {
-       $products = Product::find($id);
+        $products = Product::find($id);
+
         return view('admin.products.editproduct', compact('products'));
     }
-
 
     public function update(Request $request, $id)
     {
@@ -74,9 +77,9 @@ class ProductController extends Controller
         $products = Product::find($id);
         $products->name = $request->get('name');
         $products->save();
+
         return redirect()->intended('admin/products');
     }
-
 
     public function destroy($id)
     {
