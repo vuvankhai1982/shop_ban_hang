@@ -85,23 +85,23 @@ class ProductController extends Controller
 //        ]);
 //        $data['image'] =  $filename;
         $products = new Product;
-        $arr['name'] = $request->name;
-        $arr['category_id'] = $request->category_id;
-        $arr['description'] = $request->description;
-        $arr['content'] = $request->content;
-        $arr['status_id'] = $request->status_id;
-        $arr['type_id'] = $request->type_id;
-        $arr['unit_price'] = $request->unit_price;
-        $arr['promotion_price'] = $request->promotion_price;
+        $data['name'] = $request->name;
+        $data['category_id'] = $request->category_id;
+        $data['description'] = $request->description;
+        $data['content'] = $request->content;
+        $data['status_id'] = $request->status_id;
+        $data['type_id'] = $request->type_id;
+        $data['unit_price'] = $request->unit_price;
+        $data['promotion_price'] = $request->promotion_price;
         if ($request->hasFile('image')){
             $filename= $request->image->getClientOriginalName();
-            $arr['image'] = $filename;
+            $data['image'] = $filename;
             $file = $request->image;
             $file  ->move('images', $filename);
         }
-        $products::where('id', $id)->update($arr);
+        $products::where('id', $id)->update( $data);
 
-        return back();
+        return redirect()->intended('admin/products');
     }
 
     public function destroy($id)
