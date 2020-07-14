@@ -97,7 +97,7 @@ class ProductController extends Controller
             $filename= $request->image->getClientOriginalName();
             $data['image'] = $filename;
             $file = $request->image;
-            $file  ->move('images', $filename);
+            $file ->move('images', $filename);
         }
         $products::where('id', $id)->update( $data);
 
