@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->longText('content')->nullable();
             $table->unsignedTinyInteger('status_id');
+            $table->unsignedTinyInteger('type_id');
             $table->unsignedBigInteger('unit_price');
             $table->unsignedBigInteger('promotion_price');
             $table->string('image')->nullable();

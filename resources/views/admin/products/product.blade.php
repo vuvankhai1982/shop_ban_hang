@@ -1,5 +1,5 @@
 @extends('admin.layout.admin_layout')
-@section('content')
+@section('main')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="row">
             <div class="col-lg-12">
@@ -34,12 +34,17 @@
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->unit_price}}VND</td>
                                         <td>
-                                            <img width="200px" src="{{$product->image}}" class="thumbnail">
+                                            <img width="200px" src="{{asset('images/'.$product->image)}}" class="thumbnail">
                                         </td>
                                         <td>{{$product->category_id}}</td>
                                         <td>
-                                            <a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-                                            <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+                                            <a href="{{asset('admin/products/'.$product->id)}}" class="btn btn-warning"><span  class="glyphicon glyphicon-edit"></span> Sửa</a>
+{{--                                            <a href="{{route('products.destroy', $product->id)}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>--}}
+                                            <form style="float: right" action="{{ route('products.destroy', $product->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button  type="submit" onclick="return confirm('Bạn có chắc chắn muốn xóa?');" class="btn btn-danger"><span  class="glyphicon glyphicon-trash"></span>Xóa</button>
+                                            </form>
                                         </td>
                                     </tr>
                                      @endforeach

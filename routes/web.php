@@ -31,7 +31,7 @@ Route::prefix('admin')
     ->group(function () {
 //        Route::get('/login','LoginController@getLogin')->name('get_login');
 //        Route::post('/login', 'LoginController@postLogin')->name('post_login');
-
+        Route::get('/index', 'AdminController@index');
     Route::resource('product-categories','ProductCategoryController');
     Route::resource('products','ProductController');
 });

@@ -17,10 +17,11 @@ class Product extends Model
         'description',
         'content',
         'status_id',
+        'type_id',
         'unit_price',
         'promotion_price',
         'image',
-//        'thumbnail_image'
+        'thumbnail_image'
     ];
 
     public function product_categories() {
