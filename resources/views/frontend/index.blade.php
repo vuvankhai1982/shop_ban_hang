@@ -127,7 +127,7 @@
             <div class="sidebar col-md-3 col-sm-4">
                 <ul class="list-group margin-bottom-25 sidebar-menu">
                     @foreach($categories as $cate)
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> {{$cate->name}}</a></li>
+                    <li class="list-group-item clearfix"><a href="product_categories/{{$cate->id}}"><i class="fa fa-angle-right"></i> {{$cate->name}}</a></li>
                     @endforeach
                 </ul>
             </div>

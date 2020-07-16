@@ -16,9 +16,15 @@ class HomeController extends Controller
        return view('frontend.index',compact('products', 'categories','dress', 'mens'));
    }
 
-   public  function product_categories($id){
-       $categories = ProductCategory::find($id);
-       return view('frontend.product_categories', compact('categories'));
+   public  function getCategory($id){
 
+       $categories = ProductCategory::all();
+       $items = Product::where('category_id', $id)->orderBy('id', 'desc')->paginate(5);
+       return view('frontend.product_categories', compact('items', 'categories'));
+
+   }
+   public function  getProduct($id){
+       $item = Product::find($id);
+       return view('frontend.product',compact('item'));
    }
 }

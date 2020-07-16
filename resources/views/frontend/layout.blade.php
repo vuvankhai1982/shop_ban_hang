@@ -19,7 +19,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 <head>
     <meta charset="utf-8">
     <title>Metronic Shop UI</title>
-
+    <base href="{{asset('')}}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -42,6 +42,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
     <!-- Fonts END -->
 
     <!-- Global styles START -->
+
     <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Global styles END -->
@@ -370,7 +371,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 
                     <ul class="dropdown-menu">
                         @foreach($categories as $cate)
-                        <li ><a href="product_categories/{{$cate->id}}">{{$cate->name}}</a></li>
+                        <li ><a href="{{asset('product-categories/'.$cate->id)}}">{{$cate->name}}</a></li>
 {{--                        <li><a href="shop-index-header-fix.html">Home Header Fixed</a></li>--}}
 {{--                        <li><a href="shop-index-light-footer.html">Home Light Footer</a></li>--}}
 {{--                        <li><a href="shop-product-list.html">Product List</a></li>--}}
