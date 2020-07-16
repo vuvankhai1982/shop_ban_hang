@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $categories = ProductCategory::all();
-        $products = Product::all();
+        $products = Product::orderBy('id', 'desc')->paginate(5);;
         return view('admin.products.product', compact('products','categories'));
     }
 
@@ -47,7 +47,7 @@ class ProductController extends Controller
 
         Product::create($data);
 
-        return back();
+        return redirect()->intended('admin/products');
     }
 
     public function show($id)

@@ -26,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 //////    }
 //////});
 Route::get('/', 'HomeController@index');
+Route::get('/product-categories', 'HomeController@product_categories')->name('product_categories');
+
 Route::prefix('admin')
     ->namespace('Admin')
     ->group(function () {

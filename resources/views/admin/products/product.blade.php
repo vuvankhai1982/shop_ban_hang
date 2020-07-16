@@ -32,7 +32,7 @@
                                     <tr>
                                         <td>{{$product->id}}</td>
                                         <td>{{$product->name}}</td>
-                                        <td>{{$product->unit_price}}VND</td>
+                                        <td>{{number_format($product->unit_price,0,',', '.')}} VND</td>
                                         <td>
                                             <img width="200px" src="{{asset('images/'.$product->image)}}" class="thumbnail">
                                         </td>
@@ -56,6 +56,10 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                {{ $products->links() }}
+            </div>
         </div><!--/.row-->
     </div>	<!--/.main-->
+
 @endsection
