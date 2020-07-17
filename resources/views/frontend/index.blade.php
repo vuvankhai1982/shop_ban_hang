@@ -105,7 +105,7 @@
                                 <img style="width: 200px; height: 200px" src="{{asset('images/'.$product->image)}}" class="img-responsive" alt="Berry Lace Dress">
                                 <div>
                                     <a href="{{asset('images/'.$product->image)}}" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                    <a href="{{asset('products/'.$product->id)}}" class="btn btn-default fancybox-fast-view">View</a>
                                 </div>
                             </div>
                             <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
@@ -127,7 +127,7 @@
             <div class="sidebar col-md-3 col-sm-4">
                 <ul class="list-group margin-bottom-25 sidebar-menu">
                     @foreach($categories as $cate)
-                    <li class="list-group-item clearfix"><a href="product_categories/{{$cate->id}}"><i class="fa fa-angle-right"></i> {{$cate->name}}</a></li>
+                    <li class="list-group-item clearfix"><a href="product-categories/{{$cate->id}}"><i class="fa fa-angle-right"></i> {{$cate->name}}</a></li>
                     @endforeach
                 </ul>
             </div>

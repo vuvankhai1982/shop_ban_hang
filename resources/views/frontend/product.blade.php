@@ -3,7 +3,8 @@
 <div class="main">
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index">Home</a></li>
+
             <li><a href="">Store</a></li>
             <li class="active">Cool green dress with red bell</li>
         </ul>
@@ -12,46 +13,9 @@
             <!-- BEGIN SIDEBAR -->
             <div class="sidebar col-md-3 col-sm-5">
                 <ul class="list-group margin-bottom-25 sidebar-menu">
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Ladies</a></li>
-                    <li class="list-group-item clearfix dropdown active">
-                        <a href="shop-product-list.html" class="collapsed">
-                            <i class="fa fa-angle-right"></i>
-                            Mens
-
-                        </a>
-                        <ul class="dropdown-menu" style="display:block;">
-                            <li class="list-group-item dropdown clearfix active">
-                                <a href="shop-product-list.html" class="collapsed"><i class="fa fa-angle-right"></i> Shoes </a>
-                                <ul class="dropdown-menu" style="display:block;">
-                                    <li class="list-group-item dropdown clearfix">
-                                        <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 1</a></li>
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="list-group-item dropdown clearfix active">
-                                        <a href="shop-product-list.html" class="collapsed"><i class="fa fa-angle-right"></i> Sport  </a>
-                                        <ul class="dropdown-menu" style="display:block;">
-                                            <li class="active"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 1</a></li>
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Trainers</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Jeans</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Chinos</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> T-Shirts</a></li>
-                        </ul>
-                    </li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Kids</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Accessories</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sports</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Brands</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Electronics</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Home &amp; Garden</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Custom Link</a></li>
+                    @foreach($categories as $cate)
+                        <li class="list-group-item clearfix"><a href="product-categories/{{$cate->id}}"><i class="fa fa-angle-right"></i> {{$cate->name}}</a></li>
+                    @endforeach
                 </ul>
 
                 <div class="sidebar-products clearfix">
@@ -81,20 +45,20 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="product-main-image">
-                                <img src="assets/pages/img/products/model7.jpg" alt="Cool green dress with red bell" class="img-responsive" data-BigImgsrc="assets/pages/img/products/model7.jpg">
+                                <img src="{{asset('images/'.$item_view->image)}}" alt="Cool green dress with red bell" class="img-responsive" data-BigImgsrc="{{asset('images/'.$item_view->image)}}">
                             </div>
                             <div class="product-other-images">
-                                <a href="assets/pages/img/products/model3.jpg" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="assets/pages/img/products/model3.jpg"></a>
-                                <a href="assets/pages/img/products/model4.jpg" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="assets/pages/img/products/model4.jpg"></a>
-                                <a href="assets/pages/img/products/model5.jpg" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="assets/pages/img/products/model5.jpg"></a>
+                                <a href="{{asset('images/'.$item_view->image)}}" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="{{asset('images/'.$item_view->image)}}"></a>
+                                <a href="{{asset('images/'.$item_view->image)}}" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="{{asset('images/'.$item_view->image)}}"></a>
+                                <a href="{{asset('images/'.$item_view->image)}}" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="{{asset('images/'.$item_view->image)}}"></a>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <h1>Cool green dress with red bell</h1>
                             <div class="price-availability-block clearfix">
                                 <div class="price">
-                                    <strong><span>$</span>47.00</strong>
-                                    <em>$<span>62.00</span></em>
+                                    <strong><span>{{number_format($item_view->promotion_price,0,',', '.')}} VND</span></strong>
+                                    <em><span>{{number_format($item_view->unit_price,0,',', '.')}} VND</span></em>
                                 </div>
                                 <div class="availability">
                                     Availability: <strong>In Stock</strong>

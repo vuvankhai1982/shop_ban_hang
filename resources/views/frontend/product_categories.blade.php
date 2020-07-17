@@ -104,7 +104,7 @@
                                 <img src="{{asset('images/'.$item->image)}}" class="img-responsive" alt="Berry Lace Dress">
                                 <div>
                                     <a href="{{asset('images/'.$item->image)}}" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                    <a href="{{asset('products/'.$item->id)}}" class="btn btn-default fancybox-fast-view">View</a>
                                 </div>
                             </div>
                             <h3><a href="shop-item.html">Berry Lace Dress Berry Lace Dress</a></h3>

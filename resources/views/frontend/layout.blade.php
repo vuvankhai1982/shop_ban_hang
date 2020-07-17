@@ -131,7 +131,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 <!-- BEGIN HEADER -->
 <div class="header">
     <div class="container">
-        <a class="site-logo" href="shop-index.html"><img src="assets/corporate/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
+        <a class="site-logo" href="{{asset('/')}}"><img src="assets/corporate/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
@@ -215,8 +215,8 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
         <!-- BEGIN NAVIGATION -->
         <div class="header-navigation">
             <ul>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                <li class="dropdown dropdown-megamenu">
+                    <a href="{{asset('/')}}" class="dropdown-toggle"  data-target="#" href="javascript:;">
                         Trang Chủ
 
                     </a>
@@ -246,8 +246,8 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 {{--                    </ul>--}}
                     <!-- END DROPDOWN MENU -->
                 </li>
-                <li class="dropdown dropdown-megamenu">
-                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                <li class="dropdown-megamenu">
+                    <a class="dropdown-toggle"  data-target="#" href="javascript:;">
                        Giới Thiệu
 
                     </a>
