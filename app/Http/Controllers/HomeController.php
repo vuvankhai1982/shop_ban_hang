@@ -20,6 +20,7 @@ class HomeController extends Controller
 
 //       $categories = ProductCategory::all();
        $items = Product::where('category_id', $id)->orderBy('id', 'desc')->paginate(5);
+//       $bestsellers = Product::where('type_id', config('constants.product.types.ban_chay'))->get();
        return view('frontend.product_categories', compact('items', 'categories'));
 
    }
@@ -27,8 +28,8 @@ class HomeController extends Controller
    public function  getProduct($id){
 //       $categories = ProductCategory::all();
        $item_view = Product::find($id);
-       $bestsellers = Product::where('type_id', config('constants.product.types.ban_chay'))->get();
-       return view('frontend.product',compact('item_view','categories', 'bestsellers'));
+//       $bestsellers = Product::where('type_id', config('constants.product.types.ban_chay'))->get();
+       return view('frontend.product',compact('item_view','categories'));
    }
 
    public function about(){

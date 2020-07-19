@@ -19,7 +19,7 @@
                 </ul>
 
                 <div class="sidebar-products clearfix">
-                    <h2>Bestsellers</h2>
+                    <h2>Sản Phẩm Bán Chạy Nhất</h2>
                     @foreach($bestsellers as $bestseller)
                     <div class="item">
                         <a href="shop-item.html"><img src="{{asset('images/'.$bestseller->image)}}" alt="Some Shoes in Animal with Cut Out"></a>
