@@ -49,7 +49,7 @@ class ProductCategoryController extends Controller
         $category = ProductCategory::find($id);
         $category->name = $request->get('name');
         $category->save();
-//        session::put('message', 'Thêm danh mục sản phẩm thành công!');
+        Session::put('message', 'Sửa danh mục sản phẩm thành công!');
         return redirect()->intended('admin/product-categories');
     }
 
@@ -57,6 +57,7 @@ class ProductCategoryController extends Controller
     {
         $data = ProductCategory::find($id);
         $data->delete();
+        Session::put('message', 'Xóa danh mục sản phẩm thành công!');
         return redirect()->intended('admin/product-categories');
     }
 }

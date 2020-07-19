@@ -4,6 +4,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Sản phẩm</h1>
+
+                <?php
+                $message = Session::get('message');
+                if ($message){
+                    echo '<span class="alert alert-success">'.$message.'</span>';
+                    Session::put('message', null);
+                }
+                ?>
             </div>
         </div><!--/.row-->
 

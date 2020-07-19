@@ -28,7 +28,13 @@
                         <div class="form-group">
                             <a href="{{asset('admin/product-categories')}}" class="form-control btn btn-danger">Hủy bỏ </a>
                         </div>
-
+                            <?php
+                            $message = Session::get('message');
+                            if ($message){
+                                echo '<span class="alert alert-success">'.$message.'</span>';
+                                Session::put('message', null);
+                            }
+                            ?>
                         </form>
                     </div>
                 </div>

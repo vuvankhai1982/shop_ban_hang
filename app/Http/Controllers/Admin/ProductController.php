@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use DB;
+use Session;
 
 class ProductController extends Controller
 {
@@ -47,6 +48,7 @@ class ProductController extends Controller
 
         Product::create($data);
 
+        Session::put('message', 'Thêm sản phẩm thành công!');
         return redirect()->intended('admin/products');
     }
 
@@ -101,6 +103,7 @@ class ProductController extends Controller
         }
         $products::where('id', $id)->update( $data);
 
+        Session::put('message', 'Sửa sản phẩm thành công!');
         return redirect()->intended('admin/products');
     }
 
@@ -108,6 +111,8 @@ class ProductController extends Controller
     {
         $products = Product::find($id);
         $products->delete();
+
+        Session::put('message', 'Xóa sản phẩm thành công!');
         return back();
     }
 }
