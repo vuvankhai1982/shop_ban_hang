@@ -20,21 +20,13 @@
 
                 <div class="sidebar-products clearfix">
                     <h2>Bestsellers</h2>
+                    @foreach($bestsellers as $bestseller)
                     <div class="item">
-                        <a href="shop-item.html"><img src="assets/pages/img/products/k1.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                        <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
-                        <div class="price">$31.00</div>
+                        <a href="shop-item.html"><img src="{{asset('images/'.$bestseller->image)}}" alt="Some Shoes in Animal with Cut Out"></a>
+                        <h3><a href="shop-item.html">{{$bestseller->description}}</a></h3>
+                        <div class="price">{{number_format($bestseller->unit_price,0,',', '.')}} VND</div>
                     </div>
-                    <div class="item">
-                        <a href="shop-item.html"><img src="assets/pages/img/products/k4.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                        <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
-                        <div class="price">$23.00</div>
-                    </div>
-                    <div class="item">
-                        <a href="shop-item.html"><img src="assets/pages/img/products/k3.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                        <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
-                        <div class="price">$86.00</div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <!-- END SIDEBAR -->
@@ -54,7 +46,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <h1>Cool green dress with red bell</h1>
+                            <h1>{{$item_view->description}}</h1>
                             <div class="price-availability-block clearfix">
                                 <div class="price">
                                     <strong><span>{{number_format($item_view->promotion_price,0,',', '.')}} VND</span></strong>
@@ -65,8 +57,7 @@
                                 </div>
                             </div>
                             <div class="description">
-                                <p>Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed nonumy nibh sed euismod laoreet dolore magna aliquarm erat volutpat
-                                    Nostrud duis molestie at dolore.</p>
+                                <p>{!!$item_view->content!!}</p>
                             </div>
                             <div class="product-page-options">
                                 <div class="pull-left">

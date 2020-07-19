@@ -5,8 +5,8 @@ return [
         'types' => [
             'noi_bat' => 1,
             'xa_xi' => 2,
-            'giam_giam' => 3,
-            'moi' => 4,
+            'giam_gia' => 3,
+            'ban_chay' => 4,
         ]
     ],
     'bai_viet' => [

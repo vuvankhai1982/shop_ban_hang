@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Session;
 use App\Http\Controllers\Controller;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
@@ -11,7 +11,6 @@ class ProductCategoryController extends Controller
     public function index()
     {
         $categories = ProductCategory::all();
-
         return view('admin.product_categories.category', compact('categories'));
     }
 
@@ -26,6 +25,7 @@ class ProductCategoryController extends Controller
            'name' => 'required'
        ]);
        ProductCategory::create($request->all());
+        Session::put('message', 'Thêm danh mục sản phẩm thành công!');
        return back();
     }
 
@@ -49,6 +49,7 @@ class ProductCategoryController extends Controller
         $category = ProductCategory::find($id);
         $category->name = $request->get('name');
         $category->save();
+//        session::put('message', 'Thêm danh mục sản phẩm thành công!');
         return redirect()->intended('admin/product-categories');
     }
 

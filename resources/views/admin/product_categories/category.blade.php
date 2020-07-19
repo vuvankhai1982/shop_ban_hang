@@ -23,6 +23,13 @@
                                 <input type="submit" name="submit" value="Thêm mới" class="btn btn-primary" />
                             </div>
                             @csrf
+                            <?php
+                            $message = Session::get('message');
+                            if ($message){
+                                echo '<span class="alert alert-success">'.$message.'</span>';
+                                Session::put('message', null);
+                            }
+                            ?>
                         </form>
                     </div>
                 </div>

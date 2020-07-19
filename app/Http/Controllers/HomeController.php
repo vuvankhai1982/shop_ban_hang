@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
    public function index(){
 //       $categories = ProductCategory::all();
-       $products = Product::where('type_id', 1)->orderBy('id', 'desc')->get();
+       $products = Product::where('type_id', config('constants.product.types.noi_bat'))->orderBy('id', 'desc')->get();
        $dress = Product::where('category_id',3)->orderBy('id', 'desc')->get();
        $mens = Product::where('category_id',1)->orderBy('id', 'desc')->get();
        return view('frontend.index',compact('products', 'categories','dress', 'mens'));
@@ -27,7 +27,8 @@ class HomeController extends Controller
    public function  getProduct($id){
 //       $categories = ProductCategory::all();
        $item_view = Product::find($id);
-       return view('frontend.product',compact('item_view','categories'));
+       $bestsellers = Product::where('type_id', config('constants.product.types.ban_chay'))->get();
+       return view('frontend.product',compact('item_view','categories', 'bestsellers'));
    }
 
    public function about(){
