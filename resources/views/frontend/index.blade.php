@@ -143,7 +143,7 @@
                                 <img style="width: 250px; height: 250px" src="{{asset('images/'.$dr->image)}}" class="img-responsive" alt="Berry Lace Dress">
                                 <div>
                                     <a href="{{asset('images/'.$dr->image)}}" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                    <a href="{{asset('products/'.$dr->id)}}" class="btn btn-default fancybox-fast-view">View</a>
                                 </div>
                             </div>
                             <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
@@ -172,7 +172,7 @@
                                 <img src="{{asset('images/'.$men->image)}}" class="img-responsive" alt="Berry Lace Dress">
                                 <div>
                                     <a href="{{asset('images/'.$men->image)}}" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                    <a href="{{asset('products/'.$men->id)}}" class="btn btn-default fancybox-fast-view">View</a>
                                 </div>
                             </div>
                             <h3><a href="shop-item.html">Berry Lace Dress</a></h3>

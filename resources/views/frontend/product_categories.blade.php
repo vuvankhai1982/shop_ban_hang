@@ -44,8 +44,8 @@
                     <h2>Sản Phẩm Bán Chạy Nhất</h2>
                     @foreach($bestsellers as $bestseller)
                         <div class="item">
-                            <a href="shop-item.html"><img src="{{asset('images/'.$bestseller->image)}}" alt="Some Shoes in Animal with Cut Out"></a>
-                            <h3><a href="shop-item.html">{{$bestseller->description}}</a></h3>
+                            <a href="{{asset('products/'.$bestseller->id)}}"><img src="{{asset('images/'.$bestseller->image)}}" alt="Some Shoes in Animal with Cut Out"></a>
+                            <h3><a href="{{asset('products/'.$bestseller->id)}}">{{$bestseller->description}}</a></h3>
                             <div class="price">{{number_format($bestseller->unit_price,0,',', '.')}} VND</div>
                         </div>
                     @endforeach
