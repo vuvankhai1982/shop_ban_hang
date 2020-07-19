@@ -9,7 +9,7 @@ use App\Models\Product;
 class HomeController extends Controller
 {
    public function index(){
-       $categories = ProductCategory::all();
+//       $categories = ProductCategory::all();
        $products = Product::where('type_id', 1)->orderBy('id', 'desc')->get();
        $dress = Product::where('category_id',3)->orderBy('id', 'desc')->get();
        $mens = Product::where('category_id',1)->orderBy('id', 'desc')->get();
@@ -18,25 +18,25 @@ class HomeController extends Controller
 
    public  function getCategory($id){
 
-       $categories = ProductCategory::all();
+//       $categories = ProductCategory::all();
        $items = Product::where('category_id', $id)->orderBy('id', 'desc')->paginate(5);
        return view('frontend.product_categories', compact('items', 'categories'));
 
    }
 
    public function  getProduct($id){
-       $categories = ProductCategory::all();
+//       $categories = ProductCategory::all();
        $item_view = Product::find($id);
        return view('frontend.product',compact('item_view','categories'));
    }
 
    public function about(){
-       $categories = ProductCategory::all();
+//       $categories = ProductCategory::all();
        return view('frontend.about', compact('categories'));
    }
 
     public function contacts(){
-        $categories = ProductCategory::all();
+//        $categories = ProductCategory::all();
         return view('frontend.contacts', compact('categories'));
     }
 }
