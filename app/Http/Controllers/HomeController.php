@@ -23,9 +23,20 @@ class HomeController extends Controller
        return view('frontend.product_categories', compact('items', 'categories'));
 
    }
+
    public function  getProduct($id){
        $categories = ProductCategory::all();
        $item_view = Product::find($id);
        return view('frontend.product',compact('item_view','categories'));
    }
+
+   public function about(){
+       $categories = ProductCategory::all();
+       return view('frontend.about', compact('categories'));
+   }
+
+    public function contacts(){
+        $categories = ProductCategory::all();
+        return view('frontend.contacts', compact('categories'));
+    }
 }

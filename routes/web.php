@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index');
 Route::get('/product-categories/{id}', 'HomeController@getCategory')->name('Category');
 Route::get('/products/{id}', 'HomeController@getProduct');
+Route::get('/about','HomeController@about');
+Route::get('/contacts','HomeController@contacts');
 
 Route::prefix('admin')
     ->namespace('Admin')

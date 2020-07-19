@@ -28,6 +28,7 @@ class ProductCategoryController extends Controller
        ProductCategory::create($request->all());
        return back();
     }
+
     public function show($id)
     {
             $category = ProductCategory::find($id);
