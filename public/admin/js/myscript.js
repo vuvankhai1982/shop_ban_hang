@@ -6,7 +6,7 @@ function changeImg(input){
         reader.onload = function(e){
             //Thay đổi đường dẫn ảnh
             $('#avatar').attr('src',e.target.result);
-        }
+        };
         reader.readAsDataURL(input.files[0]);
     }
 }

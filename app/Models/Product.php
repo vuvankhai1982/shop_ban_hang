@@ -24,7 +24,8 @@ class Product extends Model
         'thumbnail_image'
     ];
 
-    public function product_categories() {
+    public function category()
+    {
       return  $this->belongsTo('App\Models\ProductCategory', 'category_id', 'id');
     }
 }

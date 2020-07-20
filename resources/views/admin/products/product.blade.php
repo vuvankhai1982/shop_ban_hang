@@ -44,7 +44,7 @@
                                         <td>
                                             <img width="200px" src="{{asset('images/'.$product->image)}}" class="thumbnail">
                                         </td>
-                                        <td>{{$product->category_id}}</td>
+                                        <td>{{ $categories->find($product->category_id)->name }}</td>
                                         <td>
                                             <a href="{{asset('admin/products/'.$product->id)}}" class="btn btn-warning"><span  class="glyphicon glyphicon-edit"></span> Sửa</a>
 {{--                                            <a href="{{route('products.destroy', $product->id)}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>--}}

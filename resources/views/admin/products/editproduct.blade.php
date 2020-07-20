@@ -9,7 +9,6 @@
 
         <div class="row">
             <div class="col-xs-12 col-md-12 col-lg-12">
-
                 <div class="panel panel-primary">
                     <div class="panel-heading">Sửa sản phẩm</div>
                     <div class="panel-body">
@@ -27,7 +26,7 @@
                                         @php
                                             $types = __('constants.product.types')
                                         @endphp
-                                        <select name="type_id" >
+                                        <select name="type_id" class="form-control">
                                             @foreach($types as $key => $type)
                                                 <option value="{{ $key }}">{{ $type }}</option>
                                             @endforeach
@@ -41,7 +40,7 @@
 
                                     <div class="form-group" >
                                         <label>Ảnh sản phẩm</label>
-                                        <input required id="img" type="file" name="image" class="form-control hidden" onchange="changeImg(this)">
+                                        <input id="img" type="file" name="image" class="form-control hidden" onchange="changeImg(this)">
                                         <img id="avatar" class="thumbnail" width="300px" src="{{asset('images/'.$products->image)}}">
                                     </div>
                                     {{--                                    <div class="form-group" >--}}
@@ -69,7 +68,7 @@
                                     </div>
                                     <div class="form-group" >
                                         <label>Miêu tả ngan</label>
-                                        <textarea required name="description" >{{$products->description}}</textarea>
+                                        <textarea class="form-control" required name="description" >{{$products->description}}</textarea>
                                     </div>
                                     <div class="form-group" >
                                         <label>Miêu tả</label>
