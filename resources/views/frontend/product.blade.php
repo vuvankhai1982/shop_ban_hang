@@ -40,9 +40,11 @@
                                 <img src="{{asset('images/'.$item_view->image)}}" alt="Cool green dress with red bell" class="img-responsive" data-BigImgsrc="{{asset('images/'.$item_view->image)}}">
                             </div>
                             <div class="product-other-images">
-                                <a href="{{asset('images/'.$item_view->image)}}" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="{{asset('images/'.$item_view->image)}}"></a>
-                                <a href="{{asset('images/'.$item_view->image)}}" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="{{asset('images/'.$item_view->image)}}"></a>
-                                <a href="{{asset('images/'.$item_view->image)}}" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="{{asset('images/'.$item_view->image)}}"></a>
+                                @foreach($images as $item)
+                                <a href="{{asset('imgproducts/'.$item->images)}}" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="{{asset('imgproducts/'.$item->images)}}"></a>
+                                @endforeach
+{{--                                <a href="{{asset('imgproducts/'.$item_view->image)}}" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="{{asset('images/'.$item_view->image)}}"></a>--}}
+{{--                                <a href="{{asset('imgproducts/'.$item_view->image)}}" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="{{asset('images/'.$item_view->image)}}"></a>--}}
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">

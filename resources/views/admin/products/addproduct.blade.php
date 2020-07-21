@@ -26,7 +26,7 @@
                                         @php
                                             $types = __('constants.product.types')
                                         @endphp
-                                        <select name="type_id" >
+                                        <select name="type_id" class="form-control" >
                                             @foreach($types as $key => $type)
                                                 <option value="{{ $key }}">{{ $type }}</option>
                                             @endforeach
@@ -39,10 +39,20 @@
                                     </div>
 
                                     <div class="form-group" >
-                                        <label>Ảnh sản phẩm</label>
-                                        <input required id="img" type="file" name="image" class="form-control hidden" onchange="changeImg(this)">
-                                        <img id="avatar" class="thumbnail" width="300px" src="admin/img/new_seo-10-512.png">
+                                            <label>Ảnh sản phẩm</label>
+                                            <input required id="img" type="file" name="image" class="form-control hidden" onchange="changeImg(this)">
+                                            <img id="avatar" class="thumbnail" width="300px" src="admin/img/new_seo-10-512.png">
                                     </div>
+
+                                    <div class="form-group" >
+                                        <label>Ảnh mô tả</label>
+                                        <input id="img" type="file" name="images[]" class="form-control" multiple>
+                                    </div>
+
+{{--                                    <div class="form-group" >--}}
+{{--                                        <label>Ảnh mo ta</label>--}}
+{{--                                        <input required id="url_img" type="file" name="url_img" class="form-control" multiple>--}}
+{{--                                    </div>--}}
 {{--                                    <div class="form-group" >--}}
 {{--                                        <label>Phụ kiện</label>--}}
 {{--                                        <input required type="text" name="accessories" class="form-control">--}}
@@ -62,17 +72,17 @@
                                     <div class="form-group" >
                                         <label>Trạng thái</label>
                                         <select required name="status_id" class="form-control">
-                                            <option value="1">cong bo</option>
-                                            <option value="0">nhap</option>
+                                            <option value="1">công bố</option>
+                                            <option value="0">nháp</option>
                                         </select>
                                     </div>
                                     <div class="form-group" >
-                                        <label>Miêu tả ngan</label>
-                                        <textarea required name="description"  ></textarea>
+                                        <label>Miêu tả ngắn</label>
+                                        <textarea required name="description" class="form-control" ></textarea>
                                     </div>
                                     <div class="form-group" >
                                         <label>Miêu tả</label>
-                                        <textarea required name="content"  class="ckeditor" ></textarea>
+                                        <textarea required name="contents"  class="ckeditor" ></textarea>
                                         <script type="text/javascript">
                                             var editor = CKEDITOR.replace('content',{
                                                 language:'vi',

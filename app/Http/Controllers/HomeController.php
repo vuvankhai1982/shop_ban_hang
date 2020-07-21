@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProductCategory;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -28,8 +29,9 @@ class HomeController extends Controller
    public function  getProduct($id){
 //       $categories = ProductCategory::all();
        $item_view = Product::find($id);
+       $images = ProductImage::find($id);
 //       $bestsellers = Product::where('type_id', config('constants.product.types.ban_chay'))->get();
-       return view('frontend.product',compact('item_view','categories'));
+       return view('frontend.product',compact('item_view','images'));
    }
 
    public function about(){
