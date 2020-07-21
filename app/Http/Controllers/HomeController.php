@@ -29,9 +29,8 @@ class HomeController extends Controller
    public function  getProduct($id){
 //       $categories = ProductCategory::all();
        $item_view = Product::find($id);
-       $images = ProductImage::find($id);
 //       $bestsellers = Product::where('type_id', config('constants.product.types.ban_chay'))->get();
-       return view('frontend.product',compact('item_view','images'));
+       return view('frontend.product',compact('item_view','categories'));
    }
 
    public function about(){
