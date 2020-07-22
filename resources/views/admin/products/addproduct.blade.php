@@ -50,10 +50,6 @@
                                     </div>
 
 {{--                                    <div class="form-group" >--}}
-{{--                                        <label>Ảnh mo ta</label>--}}
-{{--                                        <input required id="url_img" type="file" name="url_img" class="form-control" multiple>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="form-group" >--}}
 {{--                                        <label>Phụ kiện</label>--}}
 {{--                                        <input required type="text" name="accessories" class="form-control">--}}
 {{--                                    </div>--}}
