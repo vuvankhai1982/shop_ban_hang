@@ -29,8 +29,14 @@ class Product extends Model
     {
       return  $this->belongsTo('App\Models\ProductCategory', 'category_id', 'id');
     }
+
     public function images()
     {
         return $this->hasMany('App\Models\ProductImage');
+    }
+
+    public static function getBestsellers()
+    {
+        return Product::where('type_id', config('constants.product.types.ban_chay'))->get();
     }
 }

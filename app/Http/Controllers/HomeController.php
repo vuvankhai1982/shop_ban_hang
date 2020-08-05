@@ -22,7 +22,7 @@ class HomeController extends Controller
    {
        $items = Product::where('category_id', $id)->orderBy('id', 'desc')->paginate(5);
        $categories = ProductCategory::all();
-       $bestsellers = Product::where('type_id', config('constants.product.types.ban_chay'))->get();
+       $bestsellers = Product::getBestsellers();
 
        return view('frontend.product_categories', compact('items', 'categories', 'bestsellers'));
    }
@@ -32,9 +32,9 @@ class HomeController extends Controller
        $item_view = Product::find($id);
        $view_images = ProductImage::where('product_id', $id)->get();
        $categories = ProductCategory::all();
-       $bestsellers = Product::where('type_id', config('constants.product.types.ban_chay'))->get();
+       $bestsellers = Product::getBestsellers();
 
-       return view('frontend.product',compact('item_view','view_images', 'categories', 'bestsellers'));
+       return view('frontend.product', compact('item_view','view_images', 'categories', 'bestsellers'));
    }
 
    public function about()
