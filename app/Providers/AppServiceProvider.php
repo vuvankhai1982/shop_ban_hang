@@ -24,10 +24,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $data['categories'] = ProductCategory::all();
-        view()->share($data);
-
-        $data['bestsellers'] = Product::where('type_id', config('constants.product.types.ban_chay'))->get();
-        view()->share($data);
     }
 }
