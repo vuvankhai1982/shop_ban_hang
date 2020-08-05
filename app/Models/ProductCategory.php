@@ -13,6 +13,7 @@ class ProductCategory extends Model
     protected $fillable = [
         'name',
     ];
+
     public function products(){
         return $this->hasMany('App\Models\ProductCategory', 'category_id', 'id');
     }

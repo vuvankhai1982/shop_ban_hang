@@ -12,6 +12,7 @@ class Product extends Model
     protected $table = 'products';
 
     protected $fillable = [
+        'id',
         'name',
         'category_id',
         'description',
@@ -27,5 +28,9 @@ class Product extends Model
     public function category()
     {
       return  $this->belongsTo('App\Models\ProductCategory', 'category_id', 'id');
+    }
+    public function images()
+    {
+        return $this->hasMany('App\Models\ProductImage');
     }
 }

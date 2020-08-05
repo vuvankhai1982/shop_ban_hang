@@ -43,6 +43,11 @@
                                         <input id="img" type="file" name="image" class="form-control hidden" onchange="changeImg(this)">
                                         <img id="avatar" class="thumbnail" width="300px" src="{{asset('images/'.$products->image)}}">
                                     </div>
+{{--                                    <div class="form-group" >--}}
+{{--                                        <label>Ảnh mô tả</label>--}}
+{{--                                        <input id="img" type="file" name="images[]" class="form-control" src="{{asset('images/'.$products->image)}}" multiple>--}}
+{{--                                    </div>--}}
+
                                     {{--                                    <div class="form-group" >--}}
                                     {{--                                        <label>Phụ kiện</label>--}}
                                     {{--                                        <input required type="text" name="accessories" class="form-control">--}}
@@ -67,12 +72,12 @@
                                         </select>
                                     </div>
                                     <div class="form-group" >
-                                        <label>Miêu tả ngan</label>
+                                        <label>Miêu tả ngắn</label>
                                         <textarea class="form-control" required name="description" >{{$products->description}}</textarea>
                                     </div>
                                     <div class="form-group" >
                                         <label>Miêu tả</label>
-                                        <textarea required name="content" class="ckeditor" >{{$products->content}}</textarea>
+                                        <textarea required name="contents" class="ckeditor" >{{$products->content}}</textarea>
                                         <script type="text/javascript">
                                             var editor = CKEDITOR.replace('content',{
                                                 language:'vi',

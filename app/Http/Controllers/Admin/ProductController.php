@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
+
 use DB;
 use Session;
+use Symfony\Component\Console\Input\Input;
+use function GuzzleHttp\Psr7\str;
 
 class ProductController extends Controller
 {
@@ -28,26 +32,30 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $file = $request->image;
+        $file_name = $request->file('image')->getClientOriginalName();
+        $request->file('image')->move('images', $file_name);
+        $product = new Product();
+        $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->description = $request->description;
+        $product->content = $request->contents;
+        $product->status_id = $request->status_id;
+        $product->type_id = $request->type_id;
+        $product->unit_price = $request->unit_price;
+        $product->promotion_price = $request->promotion_price;
+        $product->image =  $file_name;
+        $product->save();
+        $product_id = $product->id;
 
-        $file->move('images', $request->image->getClientOriginalName());
-        $filename = $request->image->getClientOriginalName();
-        $request->validate([
-            'name' => 'required',
-            'category_id' => 'required',
-            'description' => 'required',
-            'content' => 'required',
-            'status_id' => 'required',
-            'type_id' => 'required',
-            'unit_price' => 'required',
-            'promotion_price' => 'required',
-//            'image'  => 'required',
-//            'thumbnail_image' => 'required'
-        ]);
-        $data = $request->all();
-        $data['image'] =  $filename;
-
-        Product::create($data);
+        if ($request->file('images')){
+            foreach ($request->file('images') as $fileimg){
+                $product_img = new ProductImage();
+                $product_img->images = $fileimg->getClientOriginalName();
+                $product_img->product_id = $product_id;
+                $fileimg->move('imgproducts', $fileimg->getClientOriginalName());
+                $product_img->save();
+            }
+        }
 
         Session::put('message', 'Thêm sản phẩm thành công!');
         return redirect()->intended('admin/products');
@@ -70,28 +78,11 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-//        $file = $request->image;
-//
-//        $file->move('images', $request->image->getClientOriginalName());
-//        $filename = $request->image->getClientOriginalName();
-//        $request->validate([
-//            'name' => 'required',
-//            'category_id' => 'required',
-//            'description' => 'required',
-//            'content' => 'required',
-//            'status_id' => 'required',
-//            'type_id' => 'required',
-//            'unit_price' => 'required',
-//            'promotion_price' => 'required',
-////            'image'  => 'required',
-////            'thumbnail_image' => 'required'
-//        ]);
-//        $data['image'] =  $filename;
         $products = new Product;
         $data['name'] = $request->name;
         $data['category_id'] = $request->category_id;
         $data['description'] = $request->description;
-        $data['content'] = $request->content;
+        $data['content'] = $request->contents;
         $data['status_id'] = $request->status_id;
         $data['type_id'] = $request->type_id;
         $data['unit_price'] = $request->unit_price;

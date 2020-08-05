@@ -12,13 +12,12 @@ class ProductImage extends Model
     protected $table = 'product_images';
 
     protected $fillable = [
-        'id',
         'product_id',
-        'url_img'
+        'images'
     ];
 
-    public function productimg()
+    public function products()
     {
-        return  $this->belongsTo('App\Models\Product', 'product_id', 'id');
+        return  $this->belongsTo('App\Models\Product');
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateTableProductImagesTable extends Migration
@@ -16,7 +17,7 @@ class CreateTableProductImagesTable extends Migration
         Schema::create('product_images', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-            $table->string('url_img')->nullable();
+            $table->string('images')->nullable();
             $table->foreign('product_id')
                 ->references('id')
                 ->on('products')
