@@ -102,15 +102,18 @@
                     <div>
                         <div class="product-item">
                             <div class="pi-img-wrapper">
-                                <img style="width: 200px; height: 200px" src="{{asset('images/'.$product->image)}}" class="img-responsive" alt="Berry Lace Dress">
+                                <img style="width: 200px; height: 200px" src="{{asset('images/'.$product->image)}}"
+                                     class="img-responsive" alt="Berry Lace Dress">
                                 <div>
-                                    <a href="{{asset('images/'.$product->image)}}" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="{{asset('products/'.$product->id)}}" class="btn btn-default fancybox-fast-view">View</a>
+                                    <a href="{{ asset('images/'.$product->image) }}"
+                                       class="btn btn-default fancybox-button">Zoom</a>
+                                    <a href="{{ url('products/'.$product->id) }}"
+                                       class="btn btn-default fancybox-fast-view">View</a>
                                 </div>
                             </div>
                             <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                             <div class="pi-price">{{number_format($product->unit_price,0,',', '.')}} VND</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                            <a href="{{ url('cart/'.$product->id . "/add") }} " class="btn btn-default add2cart">Add to cart</a>
                             <div class="sticker sticker-sale"></div>
                         </div>
                     </div>
