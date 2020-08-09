@@ -113,7 +113,7 @@
                             </div>
                             <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                             <div class="pi-price">{{number_format($product->unit_price,0,',', '.')}} VND</div>
-                            <a href="{{ url('addcart/'.$product->id) }} " class="btn btn-default add2cart">Add to cart</a>
+                            <a href="{{ url('cart/'.$product->id . "/add") }} " class="btn btn-default add2cart">Add to cart</a>
                             <div class="sticker sticker-sale"></div>
                         </div>
                     </div>

@@ -19,60 +19,39 @@
                                     <th class="goods-page-price">Unit price</th>
                                     <th class="goods-page-total" colspan="2">Total</th>
                                 </tr>
-                                <tr>
-                                    <td class="goods-page-image">
-                                        <a href="javascript:;"><img src="assets/pages/img/products/model3.jpg" alt="Berry Lace Dress"></a>
-                                    </td>
-                                    <td class="goods-page-description">
-                                        <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                                        <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                                        <em>More info is here</em>
-                                    </td>
-                                    <td class="goods-page-ref-no">
-                                        javc2133
-                                    </td>
-                                    <td class="goods-page-quantity">
-                                        <div class="product-quantity">
-                                            <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
-                                        </div>
-                                    </td>
-                                    <td class="goods-page-price">
-                                        <strong><span>$</span>47.00</strong>
-                                    </td>
-                                    <td class="goods-page-total">
-                                        <strong><span>$</span>47.00</strong>
-                                    </td>
-                                    <td class="del-goods-col">
-                                        <a class="del-goods" href="javascript:;">&nbsp;</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="goods-page-image">
-                                        <a href="javascript:;"><img src="assets/pages/img/products/model4.jpg" alt="Berry Lace Dress"></a>
-                                    </td>
-                                    <td class="goods-page-description">
-                                        <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                                        <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                                        <em>More info is here</em>
-                                    </td>
-                                    <td class="goods-page-ref-no">
-                                        javc2133
-                                    </td>
-                                    <td class="goods-page-quantity">
-                                        <div class="product-quantity">
-                                            <input id="product-quantity2" type="text" value="1" readonly class="form-control input-sm">
-                                        </div>
-                                    </td>
-                                    <td class="goods-page-price">
-                                        <strong><span>$</span>47.00</strong>
-                                    </td>
-                                    <td class="goods-page-total">
-                                        <strong><span>$</span>47.00</strong>
-                                    </td>
-                                    <td class="del-goods-col">
-                                        <a class="del-goods" href="javascript:;">&nbsp;</a>
-                                    </td>
-                                </tr>
+
+                                @foreach($cart as $item)
+                                    <?php
+                                       $product = $products->where('id', $item['product_id'])->first();
+                                    ?>
+                                    <tr>
+                                        <td class="goods-page-image">
+                                            <a href="javascript:;"><img src="assets/pages/img/products/model3.jpg" alt="Berry Lace Dress"></a>
+                                        </td>
+                                        <td class="goods-page-description">
+                                            <h3><a href="javascript:;">{{ $product->name }}</a></h3>
+                                            <p><strong>Item 1</strong> - Color: Green; Size: S</p>
+                                            <em>More info is here</em>
+                                        </td>
+                                        <td class="goods-page-ref-no">
+                                            {{ $product->id }}
+                                        </td>
+                                        <td class="goods-page-quantity">
+                                            <div class="product-quantity">
+                                                <input id="product-quantity" type="text" value="{{ $item['quantity'] }}" readonly class="form-control input-sm">
+                                            </div>
+                                        </td>
+                                        <td class="goods-page-price">
+                                            <strong><span>$</span>{{ $product->promotion_price }}</strong>
+                                        </td>
+                                        <td class="goods-page-total">
+                                            <strong><span>$</span>{{ $product->promotion_price * $item['quantity'] }}</strong>
+                                        </td>
+                                        <td class="del-goods-col">
+                                            <a class="del-goods" href="javascript:;">&nbsp;</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </table>
                         </div>
 

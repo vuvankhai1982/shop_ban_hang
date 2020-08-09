@@ -30,7 +30,8 @@ Route::get('/product-categories/{id}', 'HomeController@getCategory')->name('Cate
 Route::get('/products/{id}', 'HomeController@getProduct');
 Route::get('/about','HomeController@about');
 Route::get('/contacts','HomeController@contacts');
-Route::get('/addcart/{id}','CartController@AddCart');
+Route::get('/cart/{id}/add','CartController@add');
+Route::get('/cart/','CartController@index')->name("cart.index");
 
 Route::prefix('admin')
     ->namespace('Admin')
