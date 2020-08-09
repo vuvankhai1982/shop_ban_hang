@@ -1,23 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\ProductCategory;
-use App\Models\ProductImage;
-use App\Models\Product;
-use App\Cart;
+
 use Session;
 
 class CartController extends Controller
 {
-public function AddCart($id)
+    public function AddCart(int $id)
     {
-        $product = Product::where('id',$id)->first();
-        if($product != null){
-            $oldCart = Session('Cart') ? Session('Cart'):null;
-            $newCart = new Cart($oldCart);
-            $newCart = AddCart($product, $id);
-            dd($newCart);
+        $data = [
+            'product_id' => $id,
+            'quantity' => 1
+        ];
+
+        $cart = Session('cart') ?? [];
+
+        if (isset($cart[$id])) {
+            $data = [
+                'product_id' => $id,
+                'quantity' => ( $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1 )
+            ];
         }
+
+        $cart[$id] = $data;
+
+        session(['cart' => $cart]);
+
+        return redirect()->back()->withSuccess('Thanh cong');
     }
 }
